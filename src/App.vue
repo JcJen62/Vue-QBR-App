@@ -1,15 +1,18 @@
 <template>
   <h1>QBR App</h1>
   <helper-para />
+  <user-form />
 </template>
 
 <script>
 import HelperPara from './components/HelperPara.vue'
+import UserForm from './components/UserForm.vue'
 
 export default {
   name: 'App',
   components: {
-    HelperPara
+    HelperPara,
+    UserForm
   }
 }
 </script>
