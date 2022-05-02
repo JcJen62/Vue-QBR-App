@@ -1,26 +1,48 @@
 <template>
-  <form>
-    <input type="text">
-    <input type="text">
-    <input type="text">
-    <input type="text">
-    <input type="text">
-    <input type="text">
-    <input type="text">
-    <select>
+  <form id="formContainer">
+    <input class="txtInput" type="text" placeholder="Attempts">
+    <input class="txtInput" type="text" placeholder="Completions">
+    <input class="txtInput" type="text" placeholder="Yards Gained">
+    <input class="txtInput" type="text" placeholder="Interceptions">
+    <input class="txtInput" type="text" placeholder="Touchdowns">
+    <input class="txtInput" type="text" placeholder="Name">
+    <input class="txtInput" type="text" placeholder="Notes">
+    <select id="qbType">
       <option>NFL</option>
       <option>NCAA</option>
     </select>
-    <button type="submit">Calculate</button>
+    <button id="btnCal" type="submit">Calculate</button>
   </form>
 </template>
 
 <script>
+
 export default {
   name: "UserForm",
 }
 </script>
 
-<style>
+<style scoped>
+  #btnCal{
+    width: 200px;
+    margin: 8px;
+  }
 
+  #qbType {
+    width: 200px;
+    margin: 8px;
+  }
+
+  #formContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 1rem;
+    justify-content: center;
+  }
+
+  .txtInput {
+    width: 200px;
+    margin: 8px;
+  }
 </style>
