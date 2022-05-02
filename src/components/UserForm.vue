@@ -1,12 +1,12 @@
 <template>
   <form id="formContainer">
-    <input class="txtInput" type="text" placeholder="Attempts">
-    <input class="txtInput" type="text" placeholder="Completions">
-    <input class="txtInput" type="text" placeholder="Yards Gained">
-    <input class="txtInput" type="text" placeholder="Interceptions">
-    <input class="txtInput" type="text" placeholder="Touchdowns">
-    <input class="txtInput" type="text" placeholder="Name">
-    <input class="txtInput" type="text" placeholder="Notes">
+    <input class="txtInput" v-model="text" placeholder="Attempts">
+    <input class="txtInput" v-model="text" placeholder="Completions">
+    <input class="txtInput" v-model="text" placeholder="Yards Gained">
+    <input class="txtInput" v-model="text" placeholder="Interceptions">
+    <input class="txtInput" v-model="text" placeholder="Touchdowns">
+    <input class="txtInput" v-model="text" placeholder="Name">
+    <input class="txtInput" v-model="text" placeholder="Notes">
     <select id="qbType">
       <option>NFL</option>
       <option>NCAA</option>
