@@ -1,16 +1,19 @@
 <template>
   <div class="wrapperCard">
-      <div class="card">
+      <div
+        v-for="player in players"
+        :key="player.id"
+        class="card"
+        >
         <div class="container">
-          <h4><b>John Doe</b></h4>
+          <h4><b>{{player.name}}</b></h4>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur.
+            {{player.qbr}}<br>
+            {{player.league}}<br>
+            {{player.notes}}
           </p>
+          <button class="cardBtn">Edit Notes</button>
+          <button class="cardBtn">Delete QB</button>
         </div>
       </div>
   </div>
@@ -19,10 +22,17 @@
 <script>
 export default {
     name: "Card",
+    props: {
+      players: Array,
+    }
 };
 </script>
 
 <style scoped>
+.cardBtn {
+  
+}
+
 .wrapperCard {
   display: flex;
   flex-wrap: wrap;
