@@ -7,12 +7,12 @@
             <b>{{ player.name }}</b>
           </h4>
           <p>
-            {{ player.qbr }}<br />
+            QBR: {{ player.qbr }}<br />
             {{ player.league }}<br />
-            {{ player.notes }}
+            Notes: {{ player.notes }}
           </p>
 
-          <input v-model="notes" id="editNote" />
+          <input v-model="notes" id="editNote" placeholder="Your new note"/>
           <button class="cardBtn">Save New Note</button>
           <button class="cardBtn">Edit Notes</button>
           <button class="cardBtn">Delete QB</button>
@@ -34,10 +34,17 @@ export default {
 <style scoped>
 .cardBtn {
   margin: 8px;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: darkslategray;
+  color: white;
 }
 
 #editNote {
   margin: 8px;
+  width: 50%;
+  padding: 8px;
 }
 
 #box {
@@ -59,6 +66,7 @@ export default {
   transition: 0.5s;
   margin: 15px 0.5rem 15px 0.5rem;
   border-radius: 6px;
+  background-color: white;
 }
 
 .card:hover {

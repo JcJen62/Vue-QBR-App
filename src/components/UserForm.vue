@@ -32,11 +32,11 @@ export default {
       name: "",
       league: "NFL",
       notes: "",
-      attempts: 0,
-      completions: 0,
-      yardsGained: 0,
-      interceptions: 0,
-      touchdowns: 0,
+      attempts: null,
+      completions: null,
+      yardsGained: null,
+      interceptions: null,
+      touchdowns: null,
     };
   },
   methods: {
@@ -132,6 +132,11 @@ export default {
 #btnCal {
   width: 200px;
   margin: 8px;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: darkslategray;
+  color: white;
 }
 
 #qbType {
@@ -150,5 +155,6 @@ export default {
 .txtInput {
   width: 200px;
   margin: 8px;
+  padding: 8px;
 }
 </style>

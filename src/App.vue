@@ -70,4 +70,8 @@ h1 {
   margin: 0 auto;
   width: 50%;
 }
+
+body {
+  background-color: aliceblue;
+}
 </style>
