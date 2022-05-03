@@ -2,7 +2,7 @@
   <h1>QBR App</h1>
   <helper-para />
   <user-form @add:players='addQuarterback' />
-  <card :players="quarterbacks" />
+  <card :players="quarterbacks" @edit:players='editNotes' @delete:players='deleteQB'/>
 </template>
 
 <script>
@@ -40,7 +40,22 @@ export default {
   methods: {
     addQuarterback(quarterback) {
       this.quarterbacks.push(quarterback)
-    }
+    },
+
+    editNotes(id, notes) {
+      const newNotes = notes
+      this.quarterbacks = this.quarterbacks.map(elm => {
+        if (elm.id === id){
+          elm.notes = newNotes
+        }
+
+        return elm
+      })
+    },
+
+    // deleteQB(id) {
+
+    // }
   }
 };
 </script>
@@ -51,7 +66,7 @@ h1 {
 }
 
 #app {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   width: 50%;
 }
