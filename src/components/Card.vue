@@ -12,10 +12,9 @@
             Notes: {{ player.notes }}
           </p>
 
-          <input v-model="notes" id="editNote" placeholder="Your new note"/>
-          <button class="cardBtn">Save New Note</button>
-          <button class="cardBtn">Edit Notes</button>
-          <button class="cardBtn">Delete QB</button>
+          <input class="editNote" v-bind:id="player.id" v-bind:ref="'input-'+player.id" placeholder="Your new note"/>
+          <button class="cardBtn" @click="handleEdit('input-'+player.id)">Save New Note</button>
+          <button class="cardBtn" @click="handleDelete(player.id)" >Delete QB</button>
         </div>
       </div>
     </div>
@@ -28,6 +27,21 @@ export default {
   props: {
     players: Array,
   },
+  data() {
+    return {
+      
+    }
+  },
+  methods: {
+    handleEdit(ref) {
+      let playerID = this.$refs[ref][0].id
+      let newNotes = this.$refs[ref][0].value
+      this.$emit("edit:players", {notes: newNotes, id: playerID})
+    },
+    handleDelete(ref) {
+      this.$emit("delete:players", ref)
+    }
+  }
 };
 </script>
 
@@ -41,7 +55,7 @@ export default {
   color: white;
 }
 
-#editNote {
+.editNote {
   margin: 8px;
   width: 50%;
   padding: 8px;

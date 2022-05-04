@@ -1,9 +1,10 @@
 <template>
   <h1>QBR App</h1>
   <helper-para />
-  <user-form @add:players='addQuarterback' />
-  <card :players="quarterbacks" @edit:players='editNotes' @delete:players='deleteQB'/>
+  <user-form @add:players="addQuarterback" />
+  <card :players="quarterbacks" @edit:players="editNotes" @delete:players='deleteQB' />
 </template>
+
 
 <script>
 import HelperPara from "./components/HelperPara.vue";
@@ -39,24 +40,34 @@ export default {
   },
   methods: {
     addQuarterback(quarterback) {
-      this.quarterbacks.push(quarterback)
+      this.quarterbacks.push(quarterback);
     },
 
-    editNotes(id, notes) {
-      const newNotes = notes
-      this.quarterbacks = this.quarterbacks.map(elm => {
-        if (elm.id === id){
-          elm.notes = newNotes
+    editNotes(args) {
+      const newNotes = args.notes;
+      this.quarterbacks = this.quarterbacks.map((elm) => {
+        if (elm.id === args.id) {
+          elm.notes = newNotes;
         }
 
-        return elm
-      })
+        return elm;
+      });
     },
 
-    // deleteQB(id) {
-
-    // }
-  }
+    deleteQB(id) {
+      let index = 0;
+      for (let player of this.quarterbacks) {
+        if (player.id === id) {
+          let array = this.quarterbacks;
+          array.splice(index, 1);
+          this.quarterbacks = [...array]
+          break
+        } else {
+          index++;
+        }
+      }
+    },
+  },
 };
 </script>
 
